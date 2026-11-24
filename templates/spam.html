@@ -61,7 +61,7 @@
   {% endif %}
 
   <form method="POST">
-    <textarea name="message" placeholder="Type a message here..." required></textarea>
+    <textarea name="message" aria-label="Message to classify" placeholder="Type a message here..." required>{{ request.form.get('message', '') }}</textarea>
     <br><br>
     <button type="submit">Check Spam</button>
   </form>
