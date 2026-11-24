@@ -56,6 +56,10 @@
   <h1>🤖 Spam Detector</h1>
   <p>Paste a message and see if it's spam or not spam (ham).</p>
   
+  {% if error %}
+    <p role="alert" style="color: #ffaaaa;">{{ error }}</p>
+  {% endif %}
+
   <form method="POST">
     <textarea name="message" placeholder="Type a message here..." required></textarea>
     <br><br>

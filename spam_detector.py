@@ -42,7 +42,11 @@ else:
 def index():
     prediction = ""
     if request.method == 'POST':
-        message = request.form.get('message', '')
+        message = request.form.get('message', '').strip()
+        if not message:
+            return render_template(
+                'spam.html', prediction='', error='Please enter a message before checking for spam.'
+            ), 400
         X_new = vectorizer.transform([message])
         prediction = model.predict(X_new)[0]
     
