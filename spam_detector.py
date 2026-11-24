@@ -38,6 +38,12 @@ else:
         pickle.dump(vectorizer, f)
     print("Model saved!")
 
+@app.get('/health')
+def health():
+    """Provide a lightweight availability check without running a prediction."""
+    return {'status': 'ok', 'service': 'spam-detector'}
+
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
     prediction = ""
